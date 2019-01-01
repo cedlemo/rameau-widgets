@@ -1,0 +1,5 @@
+(library
+ (name        RameauWidgets)
+  (public_name rameau-widgets)
+  (libraries unix lwt lwt.unix notty notty.lwt str)
+)

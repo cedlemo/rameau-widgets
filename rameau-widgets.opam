@@ -1,0 +1,18 @@
+opam-version: "1.2"
+name: "rameau-widgets"
+version: "~unknown"
+maintainer: "cedlemo <cedlemo@gmx.com>"
+authors: "cedlemo <cedlemo@gmx.com>"
+homepage: "https://github.com/cedlemo/rameau-widgets"
+bug-reports: "https://github.com/cedlemo/rameau-widgets/issues"
+license: "GPL3"
+dev-repo: "https://github.com/cedlemo/rameau-widgets"
+build: [["dune" "build" "-p" name "-j" jobs]]
+build-test: [["dune" "runtest" "-p" name "-j" jobs]]
+depends: [
+  "dune" {build}
+  "lwt"
+  "ounit"
+  "cmdliner"
+  "notty"
+]

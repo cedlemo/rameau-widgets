@@ -1,0 +1,5 @@
+(executable
+  (name simple_term)
+  (public_name simple_term)
+  (libraries rameau-widgets lwt lwt.unix cmdliner notty notty.lwt unix)
+)
