@@ -1,13 +1,10 @@
-.PHONY : reinstall_libmpd
-reinstall_libmpd:
-	opam reinstall libmpdclient
-
 .PHONY : dev_run
 dev_run :
-	dune build src/rameau.exe --profile release && ./_build/default/src/rameau.exe
+	dune build bin/simple_term.exe --profile release && ./_build/default/bin/simple_term.exe
 
 .PHONY : run
 run :
+	dune build bin/simple_term.exe && ./_build/default/bin/simple_term.exe
 	dune build src/rameau.exe && ./_build/default/src/rameau.exe
 
 .PHONY : clean
