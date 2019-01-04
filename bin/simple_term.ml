@@ -14,7 +14,7 @@ let simpleterm ~imgf ~f ~s =
       match f s e with Some s -> go s | _ -> ()
   in go s
 
-open RameauWidgets.Notty_crops_example
+open RameauWidgets.Table
 
 let () =
   simpleterm ~imgf ~f ~s
