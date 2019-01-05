@@ -12,6 +12,9 @@ let hdistribute ?align w imgs =
 
 let grid xxs = xxs |> List.map I.hcat |> I.vcat
 
+let center w h i = I.(vsnap h i |> hsnap w)
+(** center (pad or crop) image i in a new image with dimension w and h *)
+
 type outline_int_decorations =
   { tl: int; (** top left *)
     tr: int; (** top right *)
