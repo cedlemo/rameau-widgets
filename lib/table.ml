@@ -1,19 +1,9 @@
 open Notty
 
-let maxby f xs = List.(fold_left max 0 (map f xs))
-
-(* column : align:[`Left|`Middle|`Right] -> image list -> image *)
-let column ~align images =
-  let width = maxby I.width images in
-  List.map (I.hsnap ~align width) images |> I.vcat
-
-let hdistribute ?align w imgs =
-  let n = List.length imgs in
-  I.(List.map (hsnap ?align (w / n)) imgs |> hcat)
-
 (** Generate a table from a list of list of strings
  * @elements string list list
  * *)
+
 let create elements =
   (* calcul width for each column for each row and get the max for each column *)
   let a = A.(fg lightmagenta) in
