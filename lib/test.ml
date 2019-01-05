@@ -1,7 +1,6 @@
-module Notty_crops_example = struct
-  open Notty_crops_example
+(** Module used to easyly test all the widgets in bin/simple_term.ml *)
 
-end
+module Notty_crops_example = Notty_crops_example
 
 module Table = struct
   open Table
