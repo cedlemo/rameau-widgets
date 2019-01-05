@@ -31,20 +31,3 @@ let create elements =
           I.hsnap (Array.get max_col_widths i) col
         ) row |> I.hcat
     ) imgs |> I.vcat
-
-let s = (2, 2)
-let f (w, h as s) = function
-    `Key (`Arrow `Left, _) -> Some (w - 1, h)
-  | `Key (`Arrow `Right, _) -> Some (w + 1, h)
-  | `Key (`Arrow `Up, _) -> Some (w, h - 1)
-  | `Key (`Arrow `Down, _) -> Some (w, h + 1)
-  | `Key (`ASCII '0', _) -> Some (0, 0)
-  | _ -> Some s
-
-let imgf (ow, oh) (w, h) =
-  let data = [
-    ["test1";"test22";"test333"];
-    ["test4444";"test55555";"test6666666"];
-    ["test777777";"test88888888";"test999999999"];
-  ] in
-  create data
