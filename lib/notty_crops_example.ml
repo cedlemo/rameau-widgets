@@ -19,16 +19,17 @@ let decorations = {
   vb = 0x2502;
 }
 
-let imgf (ow, oh) (w, h) =
+let imgf (w, h) =
+  let w', h' = s in
   let open I in
-      let (a1, a2, a3) = A.(fg lightmagenta, fg lightred, fg lightblue) in
-      strf "Sizing edge behavior. Dim: (%d, %d)" w h <->
-      ( hdistribute ow [
-          outline a1 decorations (uchar a1 (Uchar.of_int 0x2022) w h);
-          outline a2 decorations (uchar a2 (Uchar.of_int 0x2022) 300 300 |> center w h);
-          outline a3 decorations (void w h)
-        ] |> vsnap (oh - 4) )
-      <->
-      hdistribute ow [string a1 "char"; string a2 "crop"; string a3 "void"]
+  let (a1, a2, a3) = A.(fg lightmagenta, fg lightred, fg lightblue) in
+  strf "Sizing edge behavior. Dim: (%d, %d)" w h <->
+  ( hdistribute w [
+        outline a1 decorations (uchar a1 (Uchar.of_int 0x2022) w' h');
+        outline a2 decorations (uchar a2 (Uchar.of_int 0x2022) 300 300 |> center w' h');
+        outline a3 decorations (void w' h')
+      ] |> vsnap (h - 4) )
+  <->
+  hdistribute w [string a1 "char"; string a2 "crop"; string a3 "void"]
 
 

@@ -8,11 +8,12 @@ module Table = struct
   let f (w, h as s) = function
     | _ -> Some s
 
-  let imgf (ow, oh) (w, h) =
+  let imgf (w, h) =
     let data = [
       ["test1";"test22";"test333"];
       ["test4444";"test55555";"test6666666"];
       ["test777777";"test88888888";"test999999999"];
+      ["Size:"; string_of_int w; string_of_int h];
     ] in
-    create data
+    create ~size:(w, h) data
 end
