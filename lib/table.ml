@@ -25,7 +25,7 @@ let create ?size elements =
     | Some (w, h) ->
       let n = List.hd imgs |> List.length in
       let w' = w / n in
-      if n >= w then Array.make n w'
+      if n <= w then Array.make n w'
       else compute_max_widths imgs
   end
   in
