@@ -15,8 +15,8 @@ let simpleterm ~imgf ~f =
       match f (Term.size term) e with Some s -> go () | _ -> ()
   in go ()
 
-(* open RameauWidgets.Test.Table *)
-open RameauWidgets.Test.Notty_crops_example
+open RameauWidgets.Test.Table
+(* open RameauWidgets.Test.Notty_crops_example *)
 
 let () =
   simpleterm ~imgf ~f

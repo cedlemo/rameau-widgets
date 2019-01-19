@@ -16,9 +16,11 @@ let compute_max_widths imgs =
     ) imgs (** Compute max col width *)
   in max_col_widths
 
-let create ?size elements =
+let create ?size ?align elements =
   let a = A.(fg lightmagenta) in
   let imgs = List.map (fun x -> List.map I.(string a) x) elements in
+  let align = match align with None -> `Left | Some a -> a
+  in
   let col_widths = begin match size with
     | None ->
       compute_max_widths imgs (** Compute max col width *)
@@ -31,6 +33,6 @@ let create ?size elements =
   in
   List.map (fun row ->
       List.mapi (fun i col ->
-          I.hsnap (Array.get col_widths i) col
+          I.hsnap ~align (Array.get col_widths i) col
         ) row |> I.hcat
     ) imgs |> I.vcat

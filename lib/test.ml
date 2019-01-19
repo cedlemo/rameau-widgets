@@ -15,5 +15,5 @@ module Table = struct
       ["test777777";"test88888888";"test999999999"];
       ["Size:"; string_of_int w; string_of_int h];
     ] in
-    create ~size:(w, h) data
+    create ~align:`Right ~size:(w, h) data
 end
