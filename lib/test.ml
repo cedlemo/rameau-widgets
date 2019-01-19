@@ -10,10 +10,14 @@ module Table = struct
 
   let imgf (w, h) =
     let data = [
-      ["test1";"test22";"test333"];
-      ["test4444";"test55555";"test6666666"];
-      ["test777777";"test88888888";"test999999999"];
-      ["Size:"; string_of_int w; string_of_int h];
-    ] in
+      Utils.list_of_random_strings 5 15;
+      Utils.list_of_random_strings 5 15;
+      Utils.list_of_random_strings 5 15;
+      Utils.list_of_random_strings 5 15;
+      Utils.list_of_random_strings 5 15;
+      Utils.list_of_random_strings 5 15;
+      Utils.list_of_random_strings 5 15;
+    ]
+    in
     create ~align:`Right ~size:(w, h) data
 end

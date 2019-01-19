@@ -33,3 +33,21 @@ let outline attr decs img =
   let (a, b, c, d) = (chr decs.tl, chr decs.tr, chr decs.br, chr decs.bl) in
   grid [ [a; hbar; b]; [vbar; img; vbar]; [d; hbar; c] ]
 (** Drawn a decoration outline around an image *)
+
+let random_string max_length =
+  let length = Random.int(max_length - 1) + 1 in
+  let _gen () = match Random.int(26+26+10) with
+    | n when n < 26 -> int_of_char 'a' + n
+    | n when n < 26 + 26 -> int_of_char 'A' + n - 26
+    | n -> int_of_char '0' + n - 26 - 26
+  in
+  let _gen _ = String.make 1 (char_of_int(_gen())) in
+  String.concat "" (Array.to_list (Array.init length _gen))
+
+let list_of_random_strings len str_max_length =
+  let rec _build acc = function
+    | 0 -> acc
+    | i -> let s = random_string str_max_length in
+      _build (s :: acc) (i - 1)
+  in
+  _build [] len
